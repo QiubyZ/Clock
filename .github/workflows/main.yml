@@ -117,3 +117,31 @@ jobs:
           path: |
             bin/*.apk
             bin/*.aab
+      - name: Dapatkan atau buat rilis
+        id: get_release
+        uses: ncipollo/release-action@v1
+        with:
+          allowUpdates: true
+          tag: v1
+          name: Release v1
+          draft: false
+          prerelease: false
+
+      - name: Download Artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: app-release
+
+      - name: Upload Release Asset
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v1
+          name: Release v1
+          files: | 
+            app-release/*.apk
+            app-release/*.aab
+          draft: false
+          prerelease: false
+          generate_release_notes: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
