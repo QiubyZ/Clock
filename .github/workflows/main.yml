@@ -113,20 +113,10 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: package
+          name: Clock-Android-Kivy
           path: |
             bin/*.apk
             bin/*.aab
-      - name: Buat atau Update Rilis
-        uses: ncipollo/release-action@v1
-        with:
-          allowUpdates: true
-          tag: v1
-          name: Release v1
-          draft: false
-          prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload Release Asset
         uses: softprops/action-gh-release@v1
