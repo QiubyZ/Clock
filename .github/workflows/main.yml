@@ -18,6 +18,6 @@ jobs:
         uses: QiubyZ/kivy-build@v1
         with:
           buildozer_cmd: |
-            yes | buildozer -v android debug
+            buildozer -v android debug
         continue-on-error: true
         
