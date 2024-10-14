@@ -14,22 +14,19 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-       - name: Repo name
-         run: echo ${GITHUB_REPOSITORY#*/}
-         
-#      - name : Test Build
-#        uses: QiubyZ/kivy-build@v1
-#        with:
-#          buildozer_cmd: |
-#            echo 'yes' | buildozer -v android debug
+      - name : Test Build
+        uses: QiubyZ/kivy-build@v1
+        with:
+          buildozer_cmd: |
+            echo 'yes' | buildozer -v android debug
         
-#      - name: Buat Rilis Baru
-#        uses: softprops/action-gh-release@v2
-#        with:
-#          token: ${{env.GITHUB_TOKEN}}
-#          tag_name: v1
-#          name: v1 #Test Release
-#          files: ${{ github.workspace }}/bin/*.apk  
-#          draft: false
-#          prerelease: false
-#          generate_release_notes: false 
+      - name: Buat Rilis Baru
+        uses: softprops/action-gh-release@v2
+        with:
+          token: ${{env.GITHUB_TOKEN}}
+          tag_name: v1
+          name: ${GITHUB_REPOSITORY#*/} #Test Release
+          files: ${{ github.workspace }}/bin/*.apk  
+          draft: false
+          prerelease: false
+          generate_release_notes: false 
