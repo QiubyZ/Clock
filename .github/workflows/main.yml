@@ -18,6 +18,9 @@ jobs:
         uses: QiubyZ/kivy-build@v1
         with:
           buildozer_cmd: |
-            yes | buildozer -v android debug
-        continue-on-error: true
+            expect -c '
+            spawn buildozer -v android debug
+            expect "Some prompt requiring yes"
+            send "y\r"
+            interact'
         
