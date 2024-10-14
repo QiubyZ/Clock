@@ -10,7 +10,7 @@ jobs:
       - name: Build APK
         uses: digreatbrian/buildozer-action@v2
         with:
-          buildozer-cmd: y | buildozer -v android debug
+          buildozer-cmd: yes | buildozer -v android debug
           work-dir: . # directory where your main.py file rests
 
       - name: Upload artifacts
