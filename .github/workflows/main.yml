@@ -15,7 +15,7 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
        - name: Repo name
-         run: echo ${{ github.event.pull_request.head.repo.full_name }}
+         run: echo ${GITHUB_REPOSITORY#*/}
          
 #      - name : Test Build
 #        uses: QiubyZ/kivy-build@v1
