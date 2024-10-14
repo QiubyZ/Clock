@@ -18,4 +18,5 @@ jobs:
         uses: QiubyZ/kivy-build@v1
         with:
           buildozer_cmd: |
+            buildozer -v android clean
             yes | buildozer -v android debug
