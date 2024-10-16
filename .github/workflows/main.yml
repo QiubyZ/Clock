@@ -20,7 +20,7 @@ jobs:
     steps:
       
       - name: Purge
-        run: apt-get purge needrestart
+        run: sudo apt-get purge needrestart
         
       - name : Test Build
         uses: QiubyZ/kivy-build@v1
