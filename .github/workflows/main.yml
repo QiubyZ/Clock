@@ -19,14 +19,10 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       
-      - name: Purge
-        run: sudo apt-get purge needrestart
-        
       - name : Test Build
         uses: QiubyZ/kivy-build@v1
         with:
           buildozer_cmd: |
-            buildozer -v android clean |
             echo 'yes' | buildozer -v android debug
 
 
