@@ -7,7 +7,7 @@ on:
   pull_request:
     branches:
       - main
-
+#test
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -24,7 +24,6 @@ jobs:
         with:
           buildozer_cmd: |
             echo 'yes' | buildozer -v android debug
-
 
       - name: Buat Rilis Baru
         uses: softprops/action-gh-release@v2
