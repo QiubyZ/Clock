@@ -28,7 +28,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: v1
-          name: ${{GITHUB_REPOSITORY#*/}} #Test Release
+          name: Clock #Test Release
           files: ${{ github.workspace }}/bin/*.apk  
           draft: false
           prerelease: false
