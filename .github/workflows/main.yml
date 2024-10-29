@@ -24,10 +24,17 @@ jobs:
 #        with:
 #          buildozer_cmd: |
 #            echo 'yes' | buildozer -v android debug
-            
+      
       - name: Build APK
         uses: digreatbrian/buildozer-action@v2
+        
         with:
+          run: |
+            cd ${{ github.workspace }}
+            echo "check directory"
+            ls -l -a
+            
+          
           python-version: 3.8
           buildozer-cmd: buildozer -v android debug
           
