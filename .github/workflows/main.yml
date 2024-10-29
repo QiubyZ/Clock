@@ -29,9 +29,9 @@ jobs:
         uses: digreatbrian/buildozer-action@v2
         
         with:     
-          work-dir: .
           python-version: 3.8
           buildozer-cmd: buildozer -v android debug
+          work-dir: .
           
       - name: Buat Rilis Baru
         uses: softprops/action-gh-release@v2
