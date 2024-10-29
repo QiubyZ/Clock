@@ -19,12 +19,18 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       
-      - name : Test Build
-        uses: QiubyZ/kivy-build@v1
+#      - name : Test Build
+#        uses: QiubyZ/kivy-build@v1
+#        with:
+#          buildozer_cmd: |
+#            echo 'yes' | buildozer -v android debug
+            
+      - name: Build APK
+        uses: digreatbrian/buildozer-action@v2
         with:
-          buildozer_cmd: |
-            echo 'yes' | buildozer -v android debug
-
+          python-version: 3.8
+          buildozer-cmd: buildozer -v android debug
+          
       - name: Buat Rilis Baru
         uses: softprops/action-gh-release@v2
         with:
