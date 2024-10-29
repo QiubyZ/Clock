@@ -11,10 +11,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
-      repository-projects: write 
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
@@ -24,7 +20,12 @@ jobs:
 #        with:
 #          buildozer_cmd: |
 #            echo 'yes' | buildozer -v android debug
-      
+      - name: Check Dir
+        run: |
+          cd ${{ github.workspace }}
+          ls -l -a
+        shell: bash
+        
       - name: Build APK
         uses: digreatbrian/buildozer-action@v2
         
